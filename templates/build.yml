@@ -1,0 +1,12 @@
+parameters:
+  buildConfiguration: 'Release'
+
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info - ${{ parameters.buildConfiguration }}'
+  workingDirectory: ./
+
+- script: |
+    npm install -g @angular/cli
+    npm install
+    ng build --prod
+  displayName: 'npm install and build - ${{ parameters.buildConfiguration }}'

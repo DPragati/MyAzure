@@ -21,15 +21,13 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-  displayName: 'Write build info'
-  workingDirectory: ./
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
 
-- script: |
-    npm install -g @angular/cli
-    npm install
-    ng build --prod
-  displayName: 'npm install and build'
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
 
 - task: PublishBuildArtifacts@1
   inputs:
