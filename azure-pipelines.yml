@@ -28,10 +28,3 @@ steps:
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
-    
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'dist'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-  displayName: 'Publish Artifacts'
