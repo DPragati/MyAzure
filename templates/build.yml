@@ -6,7 +6,7 @@ steps:
   displayName: 'Write build info - ${{ parameters.buildConfiguration }}'
   workingDirectory: ./
 
-- script:
+- script: |
     npm install -g @angular/cli
     npm install
     ng build --prod
