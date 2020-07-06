@@ -25,15 +25,8 @@ steps:
   displayName: 'Write build info'
   workingDirectory: ./
 
-- script:
+- script: |
     npm install -g @angular/cli
     npm install
     ng build --prod
   displayName: 'npm install and build'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'dist'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-  displayName: 'Publish Artifacts'
